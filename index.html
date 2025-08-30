@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>MD. Sazzadul Bari Sarker — Civil Engineer</title>
+  <meta name="description" content="Portfolio of MD. Sazzadul Bari Sarker — Engineering Professional based in Dhaka, Bangladesh." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#0b0f14;         /* page background */
+      --card:#101620;        /* card background */
+      --muted:#9fb3c8;       /* secondary text */
+      --text:#e6edf3;        /* primary text */
+      --brand:#4cc9f0;       /* accent */
+      --brand-2:#b5179e;     /* secondary accent */
+      --line:#1f2a37;        /* borders */
+      --chip:#0f1b28;        /* pill background */
+      --success:#20c997;     /* green */
+    }
+
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif;
+      background:linear-gradient(180deg,var(--bg),#0c121a 40%, #0a0f16 100%);
+      color:var(--text);
+      line-height:1.65;
+    }
+    a{color:var(--brand);text-decoration:none}
+    a:hover{text-decoration:underline}
+
+    /* Layout */
+    .wrap{max-width:1080px;margin:0 auto;padding:24px}
+
+    /* Header */
+    header{
+      position:sticky;top:0;z-index:50;backdrop-filter:saturate(150%) blur(8px);
+      background:linear-gradient(180deg, rgba(16,22,32,0.9), rgba(16,22,32,0.6));
+      border-bottom:1px solid var(--line);
+    }
+    .nav{display:flex;align-items:center;gap:16px;justify-content:space-between}
+    .brand{display:flex;align-items:center;gap:12px}
+    .avatar{
+      width:44px;height:44px;border-radius:50%;
+      background: radial-gradient(60% 60% at 50% 40%, var(--brand) 0%, var(--brand-2) 60%, #1b2634 100%);
+      border:2px solid #162131;box-shadow:0 0 0 4px rgba(76,201,240,.08);
+    }
+    .brand h1{font-size:18px;margin:0;font-weight:700;letter-spacing:.2px}
+    .brand p{margin:0;color:var(--muted);font-size:12px}
+    .menu{display:flex;gap:12px;flex-wrap:wrap}
+    .menu a{padding:8px 12px;border:1px solid var(--line);background:var(--chip);border-radius:999px;font-size:13px}
+    .menu a:hover{border-color:var(--brand)}
+
+    /* Hero */
+    .hero{display:grid;grid-template-columns:1.2fr .8fr;gap:24px;align-items:center;margin-top:24px}
+    .card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:20px}
+    .badge{display:inline-flex;gap:8px;align-items:center;padding:6px 10px;border-radius:999px;background:#0e1a27;border:1px solid var(--line);font-size:12px;color:var(--muted)}
+    .hero h2{font-size:34px;margin:8px 0 12px;line-height:1.2}
+    .meta{display:flex;gap:14px;flex-wrap:wrap;color:var(--muted);font-size:14px}
+    .meta span{display:inline-flex;gap:8px;align-items:center}
+
+    .quick{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:12px}
+    .kpi{padding:14px;border-radius:14px;background:#0e1621;border:1px solid var(--line)}
+    .kpi h3{margin:0;font-size:22px}
+    .kpi p{margin:6px 0 0;color:var(--muted);font-size:12px}
+
+    /* Sections */
+    section{margin-top:28px}
+    h3.section-title{font-size:20px;margin:0 0 12px;color:#cde3ff}
+    .grid{display:grid;grid-template-columns:repeat(12,1fr);gap:16px}
+    .col-4{grid-column:span 4}
+    .col-6{grid-column:span 6}
+    .col-8{grid-column:span 8}
+    .col-12{grid-column:span 12}
+
+    .item{padding:14px 16px;border:1px solid var(--line);border-radius:14px;background:#0f1824}
+    .item h4{margin:0 0 4px;font-size:16px}
+    .item .sub{color:var(--muted);font-size:13px;margin:0 0 8px}
+    .item ul{margin:8px 0 0 18px;padding:0}
+    .item li{margin:6px 0}
+    .chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}
+    .chip{background:var(--chip);border:1px solid var(--line);padding:6px 10px;border-radius:999px;font-size:12px;color:#cfe1f5}
+
+    .two-col{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+
+    /* Footer */
+    footer{margin:32px 0 16px;color:var(--muted);text-align:center;font-size:13px}
+
+    /* Responsive */
+    @media (max-width: 900px){
+      .hero{grid-template-columns:1fr}
+      .quick{grid-template-columns:repeat(2,1fr)}
+      .col-4{grid-column:span 12}
+      .col-6{grid-column:span 12}
+      .col-8{grid-column:span 12}
+    }
+    @media (max-width: 560px){
+      .menu{display:none}
+      .quick{grid-template-columns:1fr}
+      .badge{font-size:11px}
+      .hero h2{font-size:28px}
+    }
+
+    /* Print-friendly */
+    @media print{
+      header, .menu, .badge, .chips, .kpi{display:none !important}
+      body{background:#fff;color:#000}
+      .card, .item{border:1px solid #bbb;background:#fff}
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="wrap nav">
+      <div class="brand">
+        <div class="avatar" aria-hidden="true"></div>
+        <div>
+          <h1>MD. Sazzadul Bari Sarker</h1>
+          <p>Engineer and Technical Professional</p>
+        </div>
+      </div>
+      <nav class="menu" aria-label="Primary">
+        <a href="#about">About</a>
+        <a href="#experience">Experience</a>
+        <a href="#education">Education</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+        <a href="#research">Research</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <!-- HERO -->
+    <div class="hero">
+      <section class="card">
+        <span class="badge">Open to roles: Consultancy · Supervision · BD</span>
+        <h2>Dedicated, results‑driven Civil Engineer with 5+ years across construction, consultancy, feasibility studies, EIA/ESIA, and business development.</h2>
+        <div class="meta">
+          <span>📍 Mohammadpur, Dhaka-1207</span>
+          <span>📧 <a href="mailto:sbarisarker@gmail.com">sbarisarker@gmail.com</a></span>
+          <span>📱 <a href="tel:+8801521213391">01521213391</a></span>
+        </div>
+        <div class="quick" aria-label="Highlights">
+          <div class="kpi"><h3>10+ Orgs</h3><p>RHD, LGED, DoA, Coast Guard, ADB, WB, GIZ & more</p></div>
+          <div class="kpi"><h3>20+ Projects</h3><p>Feasibility, EIA/ESIA, Supervision, Airports, Bridges</p></div>
+          <div class="kpi"><h3>IEB Member</h3><p>Membership No: M-47665</p></div>
+        </div>
+      </section>
+      <aside class="card">
+        <h3 class="section-title" id="about">Career Summary</h3>
+        <p>
+          B.Sc. in Civil Engineering (AUST) and MBA in International Business (DU); currently pursuing PGD in Business in IT (BUET). Experienced in infrastructure planning, environmental impact assessments, feasibility studies, supervision, and BD across public and private sectors. Strong team player capable of delivering under pressure.
+        </p>
+        <div class="chips" role="list" aria-label="Core strengths">
+          <span class="chip">Construction Supervision</span>
+          <span class="chip">Feasibility Studies</span>
+          <span class="chip">EIA/ESIA/EMP</span>
+          <span class="chip">Tender & Proposal</span>
+          <span class="chip">Stakeholder Liaison</span>
+          <span class="chip">Reporting & QC</span>
+        </div>
+      </aside>
+    </div>
+
+    <!-- EXPERIENCE -->
+    <section id="experience">
+      <h3 class="section-title">Experience</h3>
+      <div class="grid">
+        <div class="col-12 item">
+          <h4>Assistant Engineer — LGED Kalyan Samabay Samity Ltd. (LKSS)</h4>
+          <p class="sub">Feb 2024 – Present · Dhaka</p>
+          <ul>
+            <li>Tender evaluation; supervision of construction & surveys; quality control.</li>
+            <li>Prepared/implemented Pourashava Development Plan (PDP); supported TLCC & IGRC.</li>
+            <li>Drove Poverty Reduction Action Plan (PRAP) & Gender Action Plan (GAP) with allocated funds.</li>
+          </ul>
+        </div>
+        <div class="col-12 item">
+          <h4>Business Development Engineer — Onushundhani Creeds Ltd.</h4>
+          <p class="sub">Jun 2023 – Jan 2024</p>
+          <ul>
+            <li>Developed pipeline; liaised with clients & agencies; coordinated field surveys and monitoring.</li>
+            <li>Risk forecasting and mitigation planning.</li>
+            <li>Prepared EOI, RFP, RFQ documentation.</li>
+          </ul>
+        </div>
+        <div class="col-12 item">
+          <h4>Junior Engineer — Onushundhani Creeds Ltd.</h4>
+          <p class="sub">Dec 2022 – Jan 2024</p>
+          <ul>
+            <li>Coordinated field surveys; contributed to Feasibility, EIA/ESIA, EMP reports.</li>
+            <li>Weekly/Monthly/Annual reporting; team management; ECNEC approval support & presentations.</li>
+            <li>Assisted on master plan, BOQ, detailed design; supported PMs and Team Leaders.</li>
+          </ul>
+        </div>
+        <div class="col-12 item">
+          <h4>Program Coordinator — GIZ (German Development Cooperation)</h4>
+          <p class="sub">May 2023 – Jun 2023</p>
+          <ul>
+            <li>Organized the 7th International Tradeshow; liaised with officials and event management.</li>
+          </ul>
+        </div>
+        <div class="col-12 item">
+          <h4>Junior Structural Engineer — Research Engineering & Development Consultant Ltd.</h4>
+          <p class="sub">Dec 2019 – Nov 2022</p>
+          <ul>
+            <li>Structural design/drawings for residential buildings; materials and performance assurance.</li>
+            <li>Site setting-out, leveling, and supervision via site supervisors; interpreted design documents.</li>
+            <li>Ensured compliance with permits, safety, and technical documentation.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- EDUCATION -->
+    <section id="education">
+      <h3 class="section-title">Education</h3>
+      <div class="two-col">
+        <div class="item">
+          <h4>PGD — Business in Information Technology</h4>
+          <p class="sub">Bangladesh University of Engineering and Technology (BUET) · Ongoing</p>
+        </div>
+        <div class="item">
+          <h4>MBA — International Business</h4>
+          <p class="sub">University of Dhaka · 2025</p>
+        </div>
+        <div class="item">
+          <h4>B.Sc. — Civil Engineering</h4>
+          <p class="sub">Ahsanullah University of Science & Technology (AUST) · 2021</p>
+        </div>
+        <div class="item">
+          <h4>HSC — Science</h4>
+          <p class="sub">Dhaka City College · 2014</p>
+        </div>
+        <div class="item">
+          <h4>SSC — Science</h4>
+          <p class="sub">Mohammadpur Govt. High School · 2012</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- SKILLS -->
+    <section id="skills">
+      <h3 class="section-title">Skills</h3>
+      <div class="grid">
+        <div class="col-6 item">
+          <h4>Engineering</h4>
+          <div class="chips">
+            <span class="chip">AutoCAD</span>
+            <span class="chip">ETABS</span>
+            <span class="chip">STAAD.Pro</span>
+            <span class="chip">EVCS</span>
+            <span class="chip">RSEPS</span>
+          </div>
+        </div>
+        <div class="col-6 item">
+          <h4>Data & GIS</h4>
+          <div class="chips">
+            <span class="chip">Google Earth Pro</span>
+            <span class="chip">ArcGIS</span>
+            <span class="chip">SPSS</span>
+            <span class="chip">Power BI</span>
+          </div>
+        </div>
+        <div class="col-6 item">
+          <h4>Office & Docs</h4>
+          <div class="chips">
+            <span class="chip">MS Word</span>
+            <span class="chip">Excel</span>
+            <span class="chip">PowerPoint</span>
+            <span class="chip">Outlook</span>
+          </div>
+        </div>
+        <div class="col-6 item">
+          <h4>Other</h4>
+          <div class="chips">
+            <span class="chip">Filmora</span>
+            <span class="chip">Adobe Photoshop</span>
+            <span class="chip">English</span>
+            <span class="chip">Bangla</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- RESEARCH -->
+    <section id="research">
+      <h3 class="section-title">Research & Thesis</h3>
+      <div class="grid">
+        <div class="col-6 item">
+          <h4>Rebar Splicing & Mechanical Couplers</h4>
+          <p class="sub">Supervisor: Dr. Md. Abdur Rouf · 2019</p>
+        </div>
+        <div class="col-6 item">
+          <h4>Methodology for Detailed Waste Management System</h4>
+          <p class="sub">Supervisor: Dr. Md. Kamal Uddin · 2023</p>
+        </div>
+        <div class="col-6 item">
+          <h4>Financial Statement Analysis — Beacon Pharmaceuticals Ltd.</h4>
+          <p class="sub">Supervisor: Dr. Aditi Shams · 2023</p>
+        </div>
+        <div class="col-6 item">
+          <h4>Impact of Road Construction on Land Value in Bangladesh</h4>
+          <p class="sub">Supervisor: Dr. Mansura Akter · 2024</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section id="projects">
+      <h3 class="section-title">Selected Projects</h3>
+      <div class="grid">
+        <div class="col-6 item">
+          <h4>Residential Building Supervision (5‑storied)</h4>
+          <p class="sub">2019–2021; 2021–2022</p>
+        </div>
+        <div class="col-6 item">
+          <h4>Communication Plan for BRT Field Mission</h4>
+          <p class="sub">2022</p>
+        </div>
+        <div class="col-6 item">
+          <h4>EIA — Panam City</h4>
+          <p class="sub">Dept. of Archeology · 2022</p>
+        </div>
+        <div class="col-6 item">
+          <h4>Reconstruction & Development — Panam City</h4>
+          <p class="sub">Dept. of Archeology · 2022–2023</p>
+        </div>
+        <div class="col-6 item">
+          <h4>EIA — BSCIC Chemical Industrial Park, Munshiganj</h4>
+          <p class="sub">2022–2023</p>
+        </div>
+        <div class="col-6 item">
+          <h4>Feasibility — Chattogram Divisional Office</h4>
+          <p class="sub">NSI · 2022–2023</p>
+        </div>
+        <div class="col-6 item">
+          <h4>Feasibility — Baily Road Office Building</h4>
+          <p class="sub">NSI · 2023</p>
+        </div>
+        <div class="col-6 item">
+          <h4>Feasibility & Route Survey — Benapole→Jashore Gas Pipeline</h4>
+          <p class="sub">Saudi‑Bangla Gas Ltd. · 2023</p>
+        </div>
+        <div class="col-6 item">
+          <h4>Feasibility — Aminbazar, Salehpur & Noyarhat Bridges (Dhaka–Aricha N‑5)</h4>
+          <p class="sub">RHD · 2023</p>
+        </div>
+        <div class="col-6 item">
+          <h4>Feasibility — Rayer Bazar Boddhovhumi–Bosila–Keraniganj (Z8208) 4‑Lane</h4>
+          <p class="sub">RHD · 2023</p>
+        </div>
+        <div class="col-6 item">
+          <h4>Residential & Ancillary Infra Planning — Gozaria</h4>
+          <p class="sub">Bangladesh Coast Guard · 2023</p>
+        </div>
+        <div class="col-6 item">
+          <h4>Birol Land Port Development — Dinajpur</h4>
+          <p class="sub">Bangladesh Railway · 2023</p>
+        </div>
+        <div class="col-6 item">
+          <h4>SPCBL — Banknote Production Area Expansion</h4>
+          <p class="sub">2023</p>
+        </div>
+        <div class="col-6 item">
+          <h4>Environmental Monitoring Plan — Bonded Warehouse</h4>
+          <p class="sub">Huntsman · AMEZ, Munshiganj · 2023</p>
+        </div>
+        <div class="col-6 item">
+          <h4>Safeguards Advisor — Joydebpur–Mymensingh Expressway (PPP)</h4>
+          <p class="sub">ADB (TA‑9292 REG, Subproject 4) · 2023</p>
+        </div>
+        <div class="col-6 item">
+          <h4>Feasibility — Mirpur (Birullia) – Ashulia (Yearpur) Bridge (N‑511)</h4>
+          <p class="sub">RHD · 2023</p>
+        </div>
+        <div class="col-6 item">
+          <h4>Waste Management Analysis — Dohar, Keraniganj, Nawabganj</h4>
+          <p class="sub">GIZ · 2023</p>
+        </div>
+        <div class="col-6 item">
+          <h4>Feasibility — Mujib International Convention Centre, Shibchar</h4>
+          <p class="sub">IRG Development Services Ltd. · 2023</p>
+        </div>
+        <div class="col-6 item">
+          <h4>Expansion — Shah Amanat International Airport (Design Phase)</h4>
+          <p class="sub">EIA · Drone · Topo Survey — Dexterous Consultants Ltd. · 2023</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- MEMBERSHIP & INFO -->
+    <section id="memberships">
+      <h3 class="section-title">Memberships & IDs</h3>
+      <div class="grid">
+        <div class="col-6 item">
+          <h4>IEB Membership</h4>
+          <p class="sub">M-47665</p>
+        </div>
+        <div class="col-6 item">
+          <h4>CMS Membership</h4>
+          <p class="sub">224490</p>
+        </div>
+      </div>
+      <p class="sub" style="margin-top:8px;color:#89a6c7">Note: Personal identifiers (NID, blood group, parents' names, etc.) have been intentionally omitted here for privacy. You can add them if required.</p>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact">
+      <h3 class="section-title">Contact</h3>
+      <div class="two-col">
+        <div class="item">
+          <h4>Get in touch</h4>
+          <ul>
+            <li>Email: <a href="mailto:sbarisarker@gmail.com">sbarisarker@gmail.com</a></li>
+            <li>Phone: <a href="tel:+8801521213391">+880 1521-213391</a></li>
+            <li>Address: 1/13, Block‑F, Madrasha Road, Mohammadpur, Dhaka‑1207</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    © <span id="y"></span> MD. Sazzadul Bari Sarker · Built with HTML & CSS
+  </footer>
+
+  <script>
+    document.getElementById('y').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
